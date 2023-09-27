@@ -10,8 +10,8 @@ import { SortedIntList } from './hidden/SortedIntListLibrary.js'
  *
  */
 
-class InheritanceSortedIntList {
-  // Write your implementation below with API documentation
+class InheritanceSortedIntList extends SortedIntList {
+  
 
 }
 
