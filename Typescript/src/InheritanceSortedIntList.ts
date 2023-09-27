@@ -1,3 +1,4 @@
+import { IntegerList } from './IntegerList.js';
 import { SortedIntList } from './hidden/SortedIntListLibrary.js'
 
 /**
@@ -11,8 +12,27 @@ import { SortedIntList } from './hidden/SortedIntListLibrary.js'
  */
 
 class InheritanceSortedIntList extends SortedIntList {
+  private totalAdded: number = 0;
   
+  override add(num: number): boolean {
+    const added = super.add(num);
+    if (added) {
+      this.totalAdded++;
+    }
+    return added;
+  }
 
+  override addAll(list: IntegerList): boolean {
+    let added = false;
+    for (let i = 0; i < list.size(); i++) {
+      added = this.add(list.get(i)) || added;
+    }
+    return added;
+  }
+
+  getTotalAdded(): number {
+    return this.totalAdded;
+  }
 }
 
 export { InheritanceSortedIntList }
